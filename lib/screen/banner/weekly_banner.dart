@@ -56,6 +56,7 @@ List<Widget> columnDayOfWeek(BuildContext context) {
     colunas.add(
       Flexible(
         child: Container(
+          height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
               border: Border(
                   right: BorderSide(width: 0.5, color: Colors.grey),
