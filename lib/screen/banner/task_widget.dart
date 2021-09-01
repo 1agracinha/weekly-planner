@@ -44,7 +44,7 @@ class TaskWidget extends StatelessWidget {
                   child: Icon(
                     getStatusIcon(taskModel.status),
                     color: Color(0xFF460057),
-                    size: 26,
+                    size: 20,
                   ),
                 ),
                 Text(
