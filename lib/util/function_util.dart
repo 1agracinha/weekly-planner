@@ -44,4 +44,14 @@ class FunctionUtil {
 
     return lista;
   }
+
+  static void clearList() {
+    ListUtil.segList.clear();
+    ListUtil.terList.clear();
+    ListUtil.quaList.clear();
+    ListUtil.quiList.clear();
+    ListUtil.sexList.clear();
+    ListUtil.sabList.clear();
+    ListUtil.domList.clear();
+  }
 }
