@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weekly_planner/screen/banner/weekly_banner.dart';
+import 'package:weekly_planner/util/height_error.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,6 +28,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: WeeklyBanner());
+    return Scaffold(
+      body: MediaQuery.of(context).size.height < 430
+          ? HeightErrorScreen()
+          : WeeklyBanner(),
+    );
   }
 }
