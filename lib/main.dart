@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -39,7 +40,12 @@ class _MyHomePageState extends State<MyHomePage> {
           child: AppBar(
             backgroundColor: Color(0xffDDB8E7),
             elevation: 0.0,
-            title: Center(child: Text("Weekly Planner")),
+            title: Center(
+                child: Text(
+              "Weekly Planner",
+              style: GoogleFonts.rochester(
+                  textStyle: TextStyle(color: Colors.white, fontSize: 22)),
+            )),
           ),
         ),
         preferredSize: Size.fromHeight(kToolbarHeight),
