@@ -4,7 +4,7 @@ class TextInputWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: MediaQuery.of(context).size.height * 0.25,
       child: TextFormField(
         expands: true,
         maxLines: null,

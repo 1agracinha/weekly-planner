@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class CustomButtonWidget extends StatelessWidget {
   final String text;
-  final Function onPressed;
+  final VoidCallback onPressed;
   const CustomButtonWidget({required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: onPressed(),
+        onPressed: onPressed,
         child: Container(
           decoration:
               BoxDecoration(border: Border.all(color: Color(0xff8600A8))),
