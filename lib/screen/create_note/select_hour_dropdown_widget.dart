@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:weekly_planner/model/create_note/hour_item_model.dart';
+import 'package:weekly_planner/model/mock.dart';
 import 'package:weekly_planner/shared/custom_dropdown_widget.dart';
 
 class SelectHourDropdownWidget extends StatelessWidget {
-  List<HourItemModel> hours = [
-    HourItemModel(hour: "09:00", value: 1),
-    HourItemModel(hour: "09:50", value: 2),
-    HourItemModel(hour: "22:00", value: 3),
-  ];
+  List<HourItemModel> hours = Mock.hours;
 
-  int value = 1;
+  int value = 0;
 
   @override
   Widget build(BuildContext context) {
