@@ -16,7 +16,7 @@ class HeightErrorScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: 20),
             child: Text(
-              "Desculpa :( \n Visualização não disponível para dispositivos com altura inferior a 430px",
+              "Desculpa :( \n Visualização não disponível para dispositivos com dimensões inferiores a 430px de altura e/ou 930px largura",
               textAlign: TextAlign.center,
               style: TextStyle(color: Color(0xFF8600A8), fontSize: 18),
             ),
