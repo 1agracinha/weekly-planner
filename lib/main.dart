@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weekly_planner/screen/banner/weekly_banner.dart';
+import 'package:weekly_planner/screen/create_note/create_note.dart';
 import 'package:weekly_planner/util/height_error.dart';
 
 void main() {
@@ -52,10 +53,26 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         preferredSize: Size.fromHeight(kToolbarHeight),
       ),
-     
-      body: MediaQuery.of(context).size.height < 430
+      body: MediaQuery.of(context).size.height < 430 ||
+              MediaQuery.of(context).size.width < 930
           ? HeightErrorScreen()
-          : WeeklyBanner(),
+          : Padding(
+              padding: const EdgeInsets.all(20),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      padding: EdgeInsets.symmetric(
+                          horizontal:
+                              MediaQuery.of(context).size.width * 0.025),
+                      child: CreateNote()),
+                  Container(
+                      width: MediaQuery.of(context).size.width * 0.65,
+                      child: WeeklyBanner())
+                ],
+              ),
+            ),
     );
   }
 }
