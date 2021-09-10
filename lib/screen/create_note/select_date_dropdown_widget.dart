@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weekly_planner/models/create_note/date_item_model.dart';
+import 'package:weekly_planner/model/create_note/date_item_model.dart';
 import 'package:weekly_planner/shared/custom_dropdown_widget.dart';
 
 class SelectDateDropdownWidget extends StatelessWidget {
