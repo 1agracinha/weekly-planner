@@ -43,8 +43,8 @@ class _MyHomePageState extends State<MyHomePage> {
             title: Center(
                 child: Text(
               "Weekly Planner",
-              style: GoogleFonts.rochester(
-                  textStyle: TextStyle(color: Colors.white, fontSize: 22)),
+              style: GoogleFonts.getFont('Rochester',
+                  color: Colors.white, fontSize: 24),
             )),
           ),
         ),
