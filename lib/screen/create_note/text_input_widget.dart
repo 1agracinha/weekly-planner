@@ -19,7 +19,7 @@ class TextInputWidget extends StatelessWidget {
           createNoteController.textNote.value = controller.text;
         },
         decoration: InputDecoration(
-          hintText: "bla bla",
+          hintText: "lembrar de ...",
           hintStyle: TextStyle(color: Colors.grey.shade400),
           fillColor: Colors.amber,
           alignLabelWithHint: true,
