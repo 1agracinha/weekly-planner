@@ -40,17 +40,20 @@ class TaskWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsets.only(bottom: 5),
-                  child: Icon(
-                    getStatusIcon(taskModel.status),
-                    color: Color(0xFF460057),
-                    size: 20,
-                  ),
-                ),
+                    padding: EdgeInsets.only(bottom: 5),
+                    child: getIcon(taskModel.status)),
                 Text(
                   (taskModel.text as dynamic),
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 10, color: Color(0xFF460057)),
+                  style: TextStyle(
+                      fontSize: 10,
+                      color: taskModel.status != Status.todo
+                          ? taskModel.status == Status.blocked
+                              ? Colors.red
+                              : taskModel.status == Status.done
+                                  ? Colors.green
+                                  : Colors.black
+                          : Colors.black),
                 )
               ],
             )),
@@ -58,12 +61,20 @@ class TaskWidget extends StatelessWidget {
     );
   }
 
-  IconData? getStatusIcon(Status? status) {
-    if (status == Status.done)
-      return Icons.task_alt;
-    else if (status == Status.blocked)
-      return Icons.block;
-    else if (status == Status.doing) return Icons.engineering_rounded;
-    return null;
+  Icon getIcon(Status? status) {
+    IconData? icon;
+    Color color = Colors.black;
+    if (status == Status.done) {
+      icon = Icons.task_alt;
+      color = Colors.green;
+    } else if (status == Status.blocked) {
+      icon = Icons.block;
+      color = Colors.red;
+    } else if (status == Status.doing) icon = Icons.engineering_rounded;
+    return Icon(
+      icon,
+      color: color,
+      size: 20,
+    );
   }
 }
