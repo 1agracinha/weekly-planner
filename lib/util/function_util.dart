@@ -4,27 +4,28 @@ import 'package:weekly_planner/util/list_util.dart';
 
 class FunctionUtil {
   static listTasksOfDay(List<TaskModel> tasks) {
+    clearList();
     for (int i = 0; i < tasks.length; i++) {
       var tasksIn = tasks[i].dayOfWeek as dynamic;
-      if (tasksIn.contains("SEG")) {
+      if (tasksIn.toUpperCase().contains("SEG")) {
         ListUtil.segList.add(tasks[i]);
         print('SEG');
-      } else if (tasksIn.contains("TER")) {
+      } else if (tasksIn.toUpperCase().contains("TER")) {
         ListUtil.terList.add(tasks[i]);
         print('TER');
-      } else if (tasksIn.contains("QUA")) {
+      } else if (tasksIn.toUpperCase().contains("QUA")) {
         ListUtil.quaList.add(tasks[i]);
         print('QUAR');
-      } else if (tasksIn.contains("QUI")) {
+      } else if (tasksIn.toUpperCase().contains("QUI")) {
         ListUtil.quiList.add(tasks[i]);
         print('QUI');
-      } else if (tasksIn.contains("SEX")) {
+      } else if (tasksIn.toUpperCase().contains("SEX")) {
         ListUtil.sexList.add(tasks[i]);
         print('SEX');
-      } else if (tasksIn.contains("SAB")) {
+      } else if (tasksIn.toUpperCase().contains("SAB")) {
         ListUtil.sabList.add(tasks[i]);
         print('SAB');
-      } else if (tasksIn.contains("DOM")) {
+      } else if (tasksIn.toUpperCase().contains("DOM")) {
         ListUtil.domList.add(tasks[i]);
         print('DOM');
       }
