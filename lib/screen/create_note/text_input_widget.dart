@@ -10,7 +10,7 @@ class TextInputWidget extends StatelessWidget {
         maxLines: null,
         textAlignVertical: TextAlignVertical.top,
         decoration: InputDecoration(
-          hintText: "bla bla",
+          hintText: "lembrar de ...",
           hintStyle: TextStyle(color: Colors.grey.shade400),
           fillColor: Colors.amber,
           alignLabelWithHint: true,

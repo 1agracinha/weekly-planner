@@ -6,7 +6,7 @@ class TextTitleWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: 12),
       child: Text(
-        "Bla bla bla bla. BLA bla?",
+        "Adicionar nota à semana?",
         style: TextStyle(color: Colors.grey.shade400, fontSize: 26),
       ),
     );
