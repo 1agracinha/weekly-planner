@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:weekly_planner/controller/create_note_controller.dart';
 
 class CustomDropdownWidget extends StatelessWidget {
+  final CreateNoteController createNoteController;
   dynamic value;
+  final Function atualizarValor;
   final List<DropdownMenuItem<dynamic>> items;
 
-  CustomDropdownWidget({required this.items, required this.value});
+  CustomDropdownWidget(
+      {required this.items,
+      required this.value,
+      required this.atualizarValor,
+      required this.createNoteController});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +29,8 @@ class CustomDropdownWidget extends StatelessWidget {
               ),
               onChanged: (_value) {
                 value = _value;
+                createNoteController.indice.value = value;
+                atualizarValor();
               },
               items: items)
         ],

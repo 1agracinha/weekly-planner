@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:weekly_planner/models/create_note/hour_item_model.dart';
+import 'package:weekly_planner/controller/create_note_controller.dart';
+import 'package:weekly_planner/model/create_note/hour_item_model.dart';
+import 'package:weekly_planner/model/mock.dart';
 import 'package:weekly_planner/shared/custom_dropdown_widget.dart';
 
 class SelectHourDropdownWidget extends StatelessWidget {
+  List<HourItemModel> hours = Mock.hours;
+  CreateNoteController createNoteController;
+  SelectHourDropdownWidget(this.createNoteController);
 
-  List<HourItemModel> hours = [
-    HourItemModel(hour: "09:00", value: 1),
-    HourItemModel(hour: "09:50", value: 2),
-    HourItemModel(hour: "22:00", value: 3),
-  ];
-
-  int value = 1;
+  int value = 0;
 
   @override
   Widget build(BuildContext context) {
     return CustomDropdownWidget(
+        atualizarValor: () {
+          createNoteController.hourItemModel.value.hour =
+              Mock.hours[createNoteController.indice.value - 1].hour;
+        },
+        createNoteController: createNoteController,
         items: hours
             .map((item) => DropdownMenuItem(
                 value: item.value,

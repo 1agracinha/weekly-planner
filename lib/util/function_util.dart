@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:weekly_planner/model/task_model.dart';
 import 'package:weekly_planner/util/list_util.dart';
+import 'package:diacritic/diacritic.dart';
 
 class FunctionUtil {
   static listTasksOfDay(List<TaskModel> tasks) {
+    clearList();
     for (int i = 0; i < tasks.length; i++) {
-      var tasksIn = tasks[i].dayOfWeek as dynamic;
+      var tasksIn = tasks[i].dayOfWeek?.toUpperCase() as dynamic;
+      tasksIn = removeDiacritics(tasksIn);
       if (tasksIn.contains("SEG")) {
         ListUtil.segList.add(tasks[i]);
         print('SEG');

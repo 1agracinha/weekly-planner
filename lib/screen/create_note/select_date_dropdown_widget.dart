@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:weekly_planner/models/create_note/date_item_model.dart';
+import 'package:weekly_planner/controller/create_note_controller.dart';
+import 'package:weekly_planner/model/create_note/date_item_model.dart';
+import 'package:weekly_planner/model/mock.dart';
 import 'package:weekly_planner/shared/custom_dropdown_widget.dart';
 
 class SelectDateDropdownWidget extends StatelessWidget {
-  final List<DateItemModel> hours = [
-    DateItemModel(date: "Segunda", value: 1),
-    DateItemModel(date: "Terça", value: 2),
-    DateItemModel(date: "Quarta", value: 3),
-  ];
+  final List<DateItemModel> dates = Mock.dates;
+  CreateNoteController createNoteController;
+  SelectDateDropdownWidget(this.createNoteController);
 
-  int value = 1;
+  int value = 0;
 
   @override
   Widget build(BuildContext context) {
     return CustomDropdownWidget(
-        items: hours
+        atualizarValor: () {
+          createNoteController.dateItemModel.value.date =
+              Mock.dates[createNoteController.indice.value].date;
+        },
+        createNoteController: createNoteController,
+        items: dates
             .map((item) => DropdownMenuItem(
                 value: item.value,
                 child: Row(
