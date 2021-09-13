@@ -6,7 +6,7 @@ class TaskModel {
   Status? status;
   int? id;
   Color? color;
-  DateTime? hour;
+  String? hour;
 
   TaskModel(
       {this.color, this.dayOfWeek, this.hour, this.id, this.status, this.text});
