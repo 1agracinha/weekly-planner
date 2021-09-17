@@ -27,6 +27,24 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+
+  <script>
+   
+    const firebaseConfig = {
+      apiKey: "AIzaSyCSuRwZNkQQOcJuEToaC4rUBY19VLX6V0g",
+      authDomain: "weekly-planner-1agracinha.firebaseapp.com",
+      projectId: "weekly-planner-1agracinha",
+      storageBucket: "weekly-planner-1agracinha.appspot.com",
+      messagingSenderId: "841224677399",
+      appId: "1:841224677399:web:e43bf809b57003130dd452",
+      measurementId: "G-F3JQZ7LQQ2"
+    };
+  
+    firebase.initializeApp(firebaseConfig);
+  </script>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->

@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weekly_planner/controller/create_note_controller.dart';
@@ -6,7 +7,9 @@ import 'package:weekly_planner/screen/create_note/create_note.dart';
 import 'package:weekly_planner/util/height_error.dart';
 import 'package:get/get.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
