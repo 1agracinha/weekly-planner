@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:weekly_planner/controller/create_note_controller.dart';
 import 'package:weekly_planner/screen/create_note/card_create_note_widget.dart';
 import 'package:weekly_planner/screen/create_note/select_color_dropdown_widget.dart';
@@ -10,7 +9,7 @@ import 'package:weekly_planner/screen/create_note/text_title_widget.dart';
 import 'package:weekly_planner/shared/custom_button_widget.dart';
 
 class CreateNote extends StatefulWidget {
-  CreateNoteController createNoteController;
+  final CreateNoteController createNoteController;
   CreateNote(this.createNoteController);
   @override
   _CreateNoteState createState() => _CreateNoteState();
@@ -29,7 +28,7 @@ class _CreateNoteState extends State<CreateNote> {
         SelectDateDropdownWidget(widget.createNoteController),
         CustomButtonWidget(
           onPressed: () {
-            widget.createNoteController.addNote();
+            widget.createNoteController.addNote(context);
           },
           text: "add note",
         )
