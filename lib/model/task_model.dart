@@ -4,7 +4,7 @@ class TaskModel {
   String? text;
   String? dayOfWeek;
   Status? status;
-  int? id;
+  String? id;
   Color? color;
   String? hour;
 

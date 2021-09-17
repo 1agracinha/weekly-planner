@@ -101,7 +101,7 @@ class _WeeklyBannerState extends State<WeeklyBanner> {
         dayOfWeek: "",
         hour: "00:00",
         text: "",
-        id: 0,
+        id: "0",
       ))
     ];
   }
