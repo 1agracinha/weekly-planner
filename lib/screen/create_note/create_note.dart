@@ -9,31 +9,33 @@ import 'package:weekly_planner/screen/create_note/text_input_widget.dart';
 import 'package:weekly_planner/screen/create_note/text_title_widget.dart';
 import 'package:weekly_planner/shared/custom_button_widget.dart';
 
-class CreateNote extends StatefulWidget {
-  CreateNoteController createNoteController;
-  CreateNote(this.createNoteController);
-  @override
-  _CreateNoteState createState() => _CreateNoteState();
-}
-
-class _CreateNoteState extends State<CreateNote> {
-  @override
+class CreateNote extends StatelessWidget {
   Widget build(BuildContext context) {
-    return Form(
-        child: CardCreateNoteWidget(
-      widgets: [
-        TextTitleWidget(),
-        TextInputWidget(widget.createNoteController),
-        SelectColorDropdownWidget(widget.createNoteController),
-        SelectHourDropdownWidget(widget.createNoteController),
-        SelectDateDropdownWidget(widget.createNoteController),
-        CustomButtonWidget(
-          onPressed: () {
-            widget.createNoteController.addNote();
-          },
-          text: "add note",
-        )
-      ],
-    ));
+    return GetBuilder<CreateNoteController>(
+      builder: (createNoteController) {
+        return Container(
+          width: MediaQuery.of(context).size.width * 0.3,
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.025),
+          child: Form(
+            child: CardCreateNoteWidget(
+              widgets: [
+                TextTitleWidget(),
+                TextInputWidget(createNoteController),
+                SelectColorDropdownWidget(createNoteController),
+                SelectHourDropdownWidget(createNoteController),
+                SelectDateDropdownWidget(createNoteController),
+                CustomButtonWidget(
+                  onPressed: () {
+                    createNoteController.addNote(context);
+                  },
+                  text: "add note",
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 }

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:weekly_planner/util/function_util.dart';
 
 class HeightErrorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    FunctionUtil.clearList();
     return SingleChildScrollView(
       child: Center(
           child: Column(

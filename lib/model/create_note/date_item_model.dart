@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class DateItemModel {
   int value;
   String date;
