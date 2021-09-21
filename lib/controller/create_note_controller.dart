@@ -1,6 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:weekly_planner/controller/list_note_controller.dart';
 import 'package:weekly_planner/data/create_note_data.dart';
 import 'package:weekly_planner/model/create_note/color_item_model.dart';
 import 'package:weekly_planner/model/create_note/date_item_model.dart';
@@ -21,6 +21,7 @@ class CreateNoteController extends GetxController {
   Rx<DateItemModel> dateItemModel =
       DateItemModel(date: "segunda", value: 0).obs;
   Rx<HourItemModel> hourItemModel = HourItemModel(hour: "00:00", value: 0).obs;
+  ListNoteController get listNoteController => Get.find();
 
   Future<bool> addNote(BuildContext context) async {
     bool isSuccess = false;
@@ -38,14 +39,8 @@ class CreateNoteController extends GetxController {
       if (id.value.isNotEmpty) {
         CustomDialogs.successOperation(
             context: context, text: "Sucesso! Nota adicionada *-*");
-        listTaskModel.add(TaskModel(
-          id: data.id,
-          color: colorItemModel.value.color,
-          dayOfWeek: dateItemModel.value.date,
-          hour: hourItemModel.value.hour,
-          status: status.value,
-          text: textNote.value,
-        ));
+
+        listNoteController.listNote();
       } else
         CustomDialogs.failOperation(
             context: context, text: "Falha ao adicionar nota! :(");
@@ -54,13 +49,25 @@ class CreateNoteController extends GetxController {
     return isSuccess;
   }
 
-  static Map<String, dynamic> toMap(TaskModel obj) {
+  static Map<String, dynamic> toMap(TaskModel task) {
     return {
-      'color': "${obj.color}",
-      'dayOfWeek': "${obj.dayOfWeek}",
-      "hour": "${obj.hour}",
-      "status": "${obj.status}",
-      "text": "${obj.text}"
+      'color': "${task.color}",
+      'dayOfWeek': "${task.dayOfWeek}",
+      "hour": "${task.hour}",
+      "status": "${task.status}",
+      "text": "${task.text}"
     };
+  }
+
+  clearData() {
+    id.close();
+    indice.close();
+    status.close();
+    textNote.close();
+    listTaskModel.close();
+    dateItemModel.close();
+    hourItemModel.close();
+    colorItemModel.close();
+    createNoteData = CreateNoteData();
   }
 }
