@@ -4,6 +4,7 @@ import 'package:sticky_headers/sticky_headers/widget.dart';
 import 'package:weekly_planner/controller/list_note_controller.dart';
 import 'package:weekly_planner/model/task_model.dart';
 import 'package:weekly_planner/screen/banner/task_widget.dart';
+import 'package:weekly_planner/theme/colors.dart';
 
 class WeeklyBanner extends StatelessWidget {
   @override
@@ -55,8 +56,8 @@ class WeeklyBanner extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
             border: Border(
-                right: BorderSide(width: 0.5, color: Colors.grey),
-                top: BorderSide(width: 0.5, color: Colors.grey))),
+                right: BorderSide(width: 0.5, color: ColorUtil.mainGray),
+                top: BorderSide(width: 0.5, color: ColorUtil.mainGray))),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -101,12 +102,13 @@ class WeeklyBanner extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
             color: Colors.white,
-            border: Border(bottom: BorderSide(width: 0.5, color: Colors.grey))),
+            border: Border(
+                bottom: BorderSide(width: 0.5, color: ColorUtil.mainGray))),
         child: Padding(
           padding: EdgeInsets.only(top: 16, bottom: 6),
           child: Text(
             semana,
-            style: TextStyle(color: Colors.grey),
+            style: TextStyle(color: ColorUtil.mainGray),
           ),
         ),
       ),
