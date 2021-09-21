@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:weekly_planner/controller/create_note_controller.dart';
 
 class TextInputWidget extends StatelessWidget {
-  CreateNoteController createNoteController;
-
   TextInputWidget(this.createNoteController);
-  TextEditingController controller = TextEditingController();
+  final CreateNoteController createNoteController;
+  final TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(

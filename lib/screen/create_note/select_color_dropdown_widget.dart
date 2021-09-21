@@ -5,7 +5,7 @@ import 'package:weekly_planner/model/mock.dart';
 import 'package:weekly_planner/shared/custom_dropdown_widget.dart';
 
 class SelectColorDropdownWidget extends StatefulWidget {
-  CreateNoteController createNoteController;
+  final CreateNoteController createNoteController;
   SelectColorDropdownWidget(this.createNoteController);
   @override
   _SelectColorDropdownWidgetState createState() =>

@@ -5,11 +5,10 @@ import 'package:weekly_planner/model/mock.dart';
 import 'package:weekly_planner/shared/custom_dropdown_widget.dart';
 
 class SelectDateDropdownWidget extends StatelessWidget {
+  final int value = 0;
   final List<DateItemModel> dates = Mock.dates;
-  CreateNoteController createNoteController;
+  final CreateNoteController createNoteController;
   SelectDateDropdownWidget(this.createNoteController);
-
-  int value = 0;
 
   @override
   Widget build(BuildContext context) {
