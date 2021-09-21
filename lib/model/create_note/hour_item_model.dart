@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class HourItemModel {
   int value;
   String hour;
