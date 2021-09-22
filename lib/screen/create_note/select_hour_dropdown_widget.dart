@@ -13,32 +13,36 @@ class SelectHourDropdownWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomDropdownWidget(
-      atualizarValor: () {
-        createNoteController.hourItemModel.value.hour =
-            Mock.hours[createNoteController.indice.value - 1].hour;
-      },
-      createNoteController: createNoteController,
-      items: hours
-          .map((item) => DropdownMenuItem(
-              value: item.value,
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: Icon(
-                      Icons.alarm,
-                      color: ColorUtil.mainGray,
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: CustomDropdownWidget(
+        atualizarValor: () {
+          createNoteController.hourItemModel.value.hour =
+              Mock.hours[createNoteController.indice.value - 1].hour;
+          createNoteController.hourItemModel.value.value = value;
+        },
+        createNoteController: createNoteController,
+        items: hours
+            .map((item) => DropdownMenuItem(
+                value: item.value,
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Icon(
+                        Icons.alarm,
+                        color: ColorUtil.mainGray,
+                      ),
                     ),
-                  ),
-                  Text(
-                    item.hour,
-                    style: TextStyle(color: ColorUtil.mainGray),
-                  )
-                ],
-              )))
-          .toList(),
-      value: value,
+                    Text(
+                      item.hour,
+                      style: TextStyle(color: ColorUtil.mainGray),
+                    )
+                  ],
+                )))
+            .toList(),
+        value: value,
+      ),
     );
   }
 }

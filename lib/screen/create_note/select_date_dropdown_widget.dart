@@ -13,31 +13,34 @@ class SelectDateDropdownWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomDropdownWidget(
-        atualizarValor: () {
-          createNoteController.dateItemModel.value.date =
-              Mock.dates[createNoteController.indice.value].date;
-        },
-        createNoteController: createNoteController,
-        items: dates
-            .map((item) => DropdownMenuItem(
-                value: item.value,
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: Icon(
-                        Icons.calendar_today,
-                        color: ColorUtil.mainGray,
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: CustomDropdownWidget(
+          atualizarValor: () {
+            createNoteController.dateItemModel.value.date =
+                Mock.dates[createNoteController.indice.value].date;
+          },
+          createNoteController: createNoteController,
+          items: dates
+              .map((item) => DropdownMenuItem(
+                  value: item.value,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.calendar_today,
+                          color: ColorUtil.mainGray,
+                        ),
                       ),
-                    ),
-                    Text(
-                      item.date,
-                      style: TextStyle(color: ColorUtil.mainGray),
-                    )
-                  ],
-                )))
-            .toList(),
-        value: value);
+                      Text(
+                        item.date,
+                        style: TextStyle(color: ColorUtil.mainGray),
+                      )
+                    ],
+                  )))
+              .toList(),
+          value: value),
+    );
   }
 }
