@@ -20,7 +20,7 @@ class CreateNote extends StatelessWidget {
           child: Form(
             child: CardCreateNoteWidget(
               widgets: [
-                TextTitleWidget(),
+                TextTitleWidget("Adicionar nota à semana?"),
                 TextInputWidget(createNoteController),
                 SelectColorDropdownWidget(createNoteController),
                 SelectHourDropdownWidget(createNoteController),
