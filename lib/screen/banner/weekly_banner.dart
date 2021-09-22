@@ -4,48 +4,52 @@ import 'package:sticky_headers/sticky_headers/widget.dart';
 import 'package:weekly_planner/controller/list_note_controller.dart';
 import 'package:weekly_planner/model/task_model.dart';
 import 'package:weekly_planner/screen/banner/task_widget.dart';
+import 'package:weekly_planner/theme/colors.dart';
 
 class WeeklyBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ListNoteController>(
-        builder: (listNoteController) => Container(
-              width: MediaQuery.of(context).size.width,
-              color: Colors.white,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    StickyHeader(
-                      header: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: listDaysOfWeek(),
-                      ),
-                      content: Obx(
-                        () => Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              dayOfWeekColumn("SEG",
-                                  listNoteController.mondayList, context),
-                              dayOfWeekColumn("TER",
-                                  listNoteController.tuesdayList, context),
-                              dayOfWeekColumn("QUA",
-                                  listNoteController.wednesdayList, context),
-                              dayOfWeekColumn("QUI",
-                                  listNoteController.thursdayList, context),
-                              dayOfWeekColumn("SEX",
-                                  listNoteController.fridayList, context),
-                              dayOfWeekColumn("SAB",
-                                  listNoteController.saturdayList, context),
-                              dayOfWeekColumn("DOM",
-                                  listNoteController.sundayList, context),
-                            ]),
-                      ),
-                    )
-                  ],
+    return MouseRegion(
+      cursor: SystemMouseCursors.allScroll,
+      child: GetBuilder<ListNoteController>(
+          builder: (listNoteController) => Container(
+                width: MediaQuery.of(context).size.width,
+                color: Colors.white,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      StickyHeader(
+                        header: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: listDaysOfWeek(),
+                        ),
+                        content: Obx(
+                          () => Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                dayOfWeekColumn("SEG",
+                                    listNoteController.mondayList, context),
+                                dayOfWeekColumn("TER",
+                                    listNoteController.tuesdayList, context),
+                                dayOfWeekColumn("QUA",
+                                    listNoteController.wednesdayList, context),
+                                dayOfWeekColumn("QUI",
+                                    listNoteController.thursdayList, context),
+                                dayOfWeekColumn("SEX",
+                                    listNoteController.fridayList, context),
+                                dayOfWeekColumn("SAB",
+                                    listNoteController.saturdayList, context),
+                                dayOfWeekColumn("DOM",
+                                    listNoteController.sundayList, context),
+                              ]),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            ));
+              )),
+    );
   }
 
   Widget dayOfWeekColumn(
@@ -55,8 +59,8 @@ class WeeklyBanner extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
             border: Border(
-                right: BorderSide(width: 0.5, color: Colors.grey),
-                top: BorderSide(width: 0.5, color: Colors.grey))),
+                right: BorderSide(width: 0.5, color: ColorUtil.mainGray),
+                top: BorderSide(width: 0.5, color: ColorUtil.mainGray))),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -101,12 +105,13 @@ class WeeklyBanner extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
             color: Colors.white,
-            border: Border(bottom: BorderSide(width: 0.5, color: Colors.grey))),
+            border: Border(
+                bottom: BorderSide(width: 0.5, color: ColorUtil.mainGray))),
         child: Padding(
           padding: EdgeInsets.only(top: 16, bottom: 6),
           child: Text(
             semana,
-            style: TextStyle(color: Colors.grey),
+            style: TextStyle(color: ColorUtil.mainGray),
           ),
         ),
       ),

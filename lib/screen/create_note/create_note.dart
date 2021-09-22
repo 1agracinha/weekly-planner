@@ -20,22 +20,37 @@ class CreateNote extends StatelessWidget {
           child: Form(
             child: CardCreateNoteWidget(
               widgets: [
-                TextTitleWidget(),
+                TextTitleWidget("Adicionar nota à semana?"),
                 TextInputWidget(createNoteController),
                 SelectColorDropdownWidget(createNoteController),
                 SelectHourDropdownWidget(createNoteController),
                 SelectDateDropdownWidget(createNoteController),
                 CustomButtonWidget(
                   onPressed: () {
-                    createNoteController.addNote(context);
+                    if (!validateForm(createNoteController))
+                      Get.snackbar("Ops!",
+                          "certifique-se de que todos os campos foram preenchidos!",
+                          backgroundColor: Colors.orangeAccent,
+                          snackPosition: SnackPosition.BOTTOM);
+                    else
+                      createNoteController.addNote(context);
                   },
                   text: "add note",
-                )
+                ),
               ],
             ),
           ),
         );
       },
     );
+  }
+
+  bool validateForm(CreateNoteController controller) {
+    if (controller.textNote.value == "undefined")
+      return false;
+    else if (controller.hourItemModel.value.value == 0)
+      return false;
+    else if (controller.dateItemModel.value.value == 0) return false;
+    return true;
   }
 }

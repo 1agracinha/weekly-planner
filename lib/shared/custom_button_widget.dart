@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weekly_planner/theme/colors.dart';
 
 class CustomButtonWidget extends StatelessWidget {
   final String text;
@@ -9,6 +10,8 @@ class CustomButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         onPressed: onPressed,
+        style: ButtonStyle(
+            overlayColor: MaterialStateProperty.all(ColorUtil.mainPurple)),
         child: Container(
           decoration:
               BoxDecoration(border: Border.all(color: Color(0xff8600A8))),

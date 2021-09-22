@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weekly_planner/controller/create_note_controller.dart';
+import 'package:weekly_planner/theme/colors.dart';
 
 class TextInputWidget extends StatelessWidget {
   TextInputWidget(this.createNoteController);
@@ -20,14 +21,14 @@ class TextInputWidget extends StatelessWidget {
         },
         decoration: InputDecoration(
           hintText: "lembrar de ...",
-          hintStyle: TextStyle(color: Colors.grey.shade400),
+          hintStyle: TextStyle(color: ColorUtil.mainGray),
           fillColor: Colors.amber,
           alignLabelWithHint: true,
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey.shade300),
+            borderSide: BorderSide(color: ColorUtil.mainGray),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey.shade300),
+            borderSide: BorderSide(color: ColorUtil.mainGray),
           ),
         ),
       ),

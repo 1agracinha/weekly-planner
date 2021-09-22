@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weekly_planner/controller/create_note_controller.dart';
+import 'package:weekly_planner/theme/colors.dart';
 
 class CustomDropdownWidget extends StatelessWidget {
   dynamic value;
@@ -25,7 +26,7 @@ class CustomDropdownWidget extends StatelessWidget {
             value: value,
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.grey.shade300),
+                borderSide: BorderSide(width: 1, color: ColorUtil.mainGray),
               ),
             ),
             onChanged: (_value) {

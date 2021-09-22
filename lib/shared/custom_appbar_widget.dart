@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:weekly_planner/theme/colors.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
   @override
@@ -7,13 +8,13 @@ class CustomAppBarWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
-          color: Color(0xffDDB8E7),
+          color: ColorUtil.mainPurple,
           offset: Offset(0, 4),
           blurRadius: 6,
         )
       ]),
       child: AppBar(
-        backgroundColor: Color(0xffDDB8E7),
+        backgroundColor: ColorUtil.mainPurple,
         elevation: 0.0,
         title: Center(
             child: Text(
