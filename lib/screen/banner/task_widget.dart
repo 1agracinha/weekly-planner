@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weekly_planner/model/task_model.dart';
+import 'package:weekly_planner/screen/note/note.dart';
 
 class TaskWidget extends StatelessWidget {
   final TaskModel taskModel;
@@ -17,18 +18,7 @@ class TaskWidget extends StatelessWidget {
                     builder: (context) {
                       //TODO: aqui vai o visualizar tarefa
                       return AlertDialog(
-                        content: Container(
-                          color: taskModel.color,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text("ID: ${taskModel.id}"),
-                              Text("Text: ${taskModel.text}"),
-                              Text("Color: ${taskModel.color}"),
-                              Text("STATUS: ${taskModel.status}"),
-                            ],
-                          ),
-                        ),
+                        content: Container(child: Note(taskModel)),
                       );
                     });
               }
