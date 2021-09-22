@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:weekly_planner/controller/edit_note_controller.dart';
 import 'package:weekly_planner/model/task_model.dart';
 import 'package:weekly_planner/screen/note/button_note_widget.dart';
 import 'package:weekly_planner/theme/colors.dart';
 
 class ButtonsNote extends StatelessWidget {
+  final EditNoteController editNoteController;
   final TaskModel taskModel;
-  ButtonsNote(this.taskModel);
+  ButtonsNote(this.taskModel, this.editNoteController);
   String _textStatus = "";
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class ButtonsNote extends StatelessWidget {
           ButtonNoteWidget(
             prefixWidget: getIconStatus(taskModel.status),
             text: _textStatus,
+            editNoteController: editNoteController,
           ),
           ButtonNoteWidget(
             prefixWidget: Container(
@@ -26,6 +29,7 @@ class ButtonsNote extends StatelessWidget {
               color: taskModel.color,
             ),
             text: "cor selecionada",
+            editNoteController: editNoteController,
           ),
           ButtonNoteWidget(
             prefixWidget: Text(
@@ -33,6 +37,7 @@ class ButtonsNote extends StatelessWidget {
               style: TextStyle(fontSize: 14),
             ),
             text: "hora selecionada",
+            editNoteController: editNoteController,
           ),
           ButtonNoteWidget(
             prefixWidget: Text(
@@ -40,9 +45,12 @@ class ButtonsNote extends StatelessWidget {
               style: TextStyle(fontSize: 14),
             ),
             text: "dia selecionado",
+            editNoteController: editNoteController,
           ),
           TextButton(
-              onPressed: () {},
+              onPressed: () {
+                editNoteController.isEditing.value = true;
+              },
               style: ButtonStyle(
                   overlayColor:
                       MaterialStateProperty.all(ColorUtil.mainPurple)),
