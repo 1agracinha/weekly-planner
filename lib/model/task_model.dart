@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class TaskModel {
@@ -17,8 +18,9 @@ class TaskModel {
     this.text,
   });
 
-  TaskModel fromDocument(data) {
+  TaskModel fromDocument(QueryDocumentSnapshot<Object?> data) {
     return TaskModel(
+      id: data.id,
       color: convertStringToColor(data["color"]),
       dayOfWeek: data["dayOfWeek"],
       hour: data["hour"],
