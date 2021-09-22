@@ -6,7 +6,7 @@ import 'package:weekly_planner/shared/custom_dropdown_widget.dart';
 import 'package:weekly_planner/theme/colors.dart';
 
 class SelectHourDropdownWidget extends StatelessWidget {
-  final value = 0;
+  int value = 0;
   final List<HourItemModel> hours = Mock.hours;
   final CreateNoteController createNoteController;
   SelectHourDropdownWidget(this.createNoteController);
@@ -24,6 +24,9 @@ class SelectHourDropdownWidget extends StatelessWidget {
         createNoteController: createNoteController,
         items: hours
             .map((item) => DropdownMenuItem(
+                onTap: () {
+                  value = item.value;
+                },
                 value: item.value,
                 child: Row(
                   children: [

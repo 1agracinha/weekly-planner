@@ -27,15 +27,30 @@ class CreateNote extends StatelessWidget {
                 SelectDateDropdownWidget(createNoteController),
                 CustomButtonWidget(
                   onPressed: () {
-                    createNoteController.addNote(context);
+                    if (!validateForm(createNoteController))
+                      Get.snackbar("Ops!",
+                          "certifique-se de que todos os campos foram preenchidos!",
+                          backgroundColor: Colors.orangeAccent,
+                          snackPosition: SnackPosition.BOTTOM);
+                    else
+                      createNoteController.addNote(context);
                   },
                   text: "add note",
-                )
+                ),
               ],
             ),
           ),
         );
       },
     );
+  }
+
+  bool validateForm(CreateNoteController controller) {
+    if (controller.textNote.value == "undefined")
+      return false;
+    else if (controller.hourItemModel.value.value == 0)
+      return false;
+    else if (controller.dateItemModel.value.value == 0) return false;
+    return true;
   }
 }

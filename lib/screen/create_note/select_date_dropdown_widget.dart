@@ -6,7 +6,7 @@ import 'package:weekly_planner/shared/custom_dropdown_widget.dart';
 import 'package:weekly_planner/theme/colors.dart';
 
 class SelectDateDropdownWidget extends StatelessWidget {
-  final int value = 0;
+  int value = 0;
   final List<DateItemModel> dates = Mock.dates;
   final CreateNoteController createNoteController;
   SelectDateDropdownWidget(this.createNoteController);
@@ -19,11 +19,15 @@ class SelectDateDropdownWidget extends StatelessWidget {
           atualizarValor: () {
             createNoteController.dateItemModel.value.date =
                 Mock.dates[createNoteController.indice.value].date;
+            createNoteController.dateItemModel.value.value = value;
           },
           createNoteController: createNoteController,
           items: dates
               .map((item) => DropdownMenuItem(
                   value: item.value,
+                  onTap: () {
+                    value = item.value;
+                  },
                   child: Row(
                     children: [
                       Padding(
